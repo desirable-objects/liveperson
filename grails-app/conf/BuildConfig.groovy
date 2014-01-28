@@ -1,8 +1,6 @@
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
-grails.project.repos.splendid.url = "http://192.168.0.137/artifactory/grails-plugins"
-grails.project.repos.default = "splendid"
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
