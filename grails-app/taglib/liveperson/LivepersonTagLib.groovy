@@ -1,17 +1,16 @@
 package liveperson
 
 import org.codehaus.groovy.grails.commons.GrailsApplication
-import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 
 class LivepersonTagLib {
 
     GrailsApplication grailsApplication
     static namespace = 'liveperson'
 
-    def initialize = { attrs, body ->
+    def initialize = { attrs ->
 
         if (!grailsApplication.config.containsKey("liveperson") && !attrs) {
-            throw new GrailsTagException("Missing liveperson config")
+            throwTagError "Missing liveperson config"
         }
 
         ConfigObject livepersonConfig = grailsApplication.config.liveperson
@@ -47,11 +46,11 @@ class LivepersonTagLib {
 </script>"""
     }
 
-    def push = { attrs, body ->
+    def push = { attrs ->
 
         String nl = System.getProperty("line.separator")
 
-        attrs.variables.each { String key, def val ->
+        attrs.variables.each { String key, val ->
             out << "lpMTagConfig.vars.push(['${attrs.scope}', '${key}', '${val as String}']);"
             out << nl
         }

@@ -4,7 +4,9 @@
 .idea
 .classpath
 .project
-target
+/target
 *.log
 out
 *.zip
+/web-app/WEB-INF
+plugin.xml
